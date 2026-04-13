@@ -77,5 +77,9 @@ make -j4
 - Supports both video files and image sequences
 - The segment selector provides visual feedback for frame range selection
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 If you find this repo useful to you please consider click the button below to donate and support my work!
 [![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://buymeacoffee.com/bill2239)
