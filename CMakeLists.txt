@@ -7,28 +7,38 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(NOT DEFINED CMAKE_PREFIX_PATH)
     set(CMAKE_PREFIX_PATH "$ENV{HOME}/Qt/6.9.1/gcc_64")
 endif()
-# Find Qt (Widgets/Core/Gui/Concurrent)
+# Find Qt (Widgets and Core)
 find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent REQUIRED)
 
 # Find OpenCV
 find_package(OpenCV REQUIRED)
 
+# Add include directories early for MOC to find headers
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 # Source files
 set(SOURCES
     main.cpp
-    segment_selector.cpp
-    video_player.cpp
-    gif.cpp
+    src/segment_selector.cpp
+    src/video_player.cpp
+    src/gif.cpp
+)
+
+# Qt header files that need MOC processing
+set(HEADERS
+    include/segment_selector.h
+    include/video_player.h
 )
 
 # Enable Qt's automoc for signals/slots
 set(CMAKE_AUTOMOC ON)
 
 # Add executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 # Include dirs
 target_include_directories(${PROJECT_NAME}
     PRIVATE
+        include
         ${OpenCV_INCLUDE_DIRS}
 )
 

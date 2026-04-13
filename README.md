@@ -49,9 +49,9 @@ make -j4
 ## Project Structure
 
 - `main.cpp` - Application entry point
-- `video_player.h/cpp` - Main video playback and export functionality
-- `segment_selector.h/cpp` - Interactive timeline widget for frame selection
-- `gif.h/cpp` - GIF encoding implementation
+- `video_player.h` - Main video playback and export functionality
+- `segment_selector.h` - Interactive timeline widget for frame selection
+- `gif.h` - GIF encoding implementation
 - `CMakeLists.txt` - Build configuration
 
 ## Technical Details
