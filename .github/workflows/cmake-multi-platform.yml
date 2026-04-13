@@ -54,11 +54,13 @@ jobs:
       if: runner.os == 'Windows'
       run: |
         choco install opencv cmake
+        
+    - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
         version: 6.6.2
         target: desktop
-        arch: win64_msvc2022_64
+        
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
