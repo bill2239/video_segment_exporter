@@ -5,6 +5,7 @@
 #include <QGridLayout>
 #include <QTimer>
 #include <QString>
+#include <QStringList>
 #include "segment_selector.h"
 #include <opencv2/opencv.hpp>
 #include "gif.h"
@@ -24,6 +25,9 @@ private slots:
     void updateSegment(int start, int end);
 
 private:
+    bool openMediaSource(const QString& path);
+    cv::Mat readFrameAt(int frameIndex);
+
     QLabel* frame_label;
     QPushButton* play_button;
     QPushButton* load_button;
@@ -35,6 +39,9 @@ private:
 
     cv::VideoCapture cap;
     std::string video_path;
+    QStringList image_paths;
+    bool loaded_from_directory = false;
+    int current_frame = 0;
     int total_frames = 0;
     int start_frame = 0;
     int end_frame = 0;

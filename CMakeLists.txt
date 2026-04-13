@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(NOT DEFINED CMAKE_PREFIX_PATH)
     set(CMAKE_PREFIX_PATH "$ENV{HOME}/Qt/6.9.1/gcc_64")
 endif()
-# Find Qt (Widgets and Core)
-find_package(Qt6 COMPONENTS Widgets Core Gui REQUIRED)
+# Find Qt (Widgets/Core/Gui/Concurrent)
+find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent REQUIRED)
 
 # Find OpenCV
 find_package(OpenCV REQUIRED)
@@ -38,6 +38,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt6::Widgets
         Qt6::Gui
         Qt6::Core
+        Qt6::Concurrent
         ${OpenCV_LIBS}
 )
 
